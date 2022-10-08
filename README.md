@@ -19,6 +19,14 @@
 2. The system should be highly scalable as the number of users using the system increases
 
 
+## Client :
+
+Client(desktop or mobile app) keeps a watch on user’s workspace and synchronizes the files with remote server. Below are some main responsibilities of client:
+
+1. Watch workspace for changes
+2. Upload or download changes to file from remote server
+3. Handle the conflicts due to offline or concurrent updates
+4. Update file metadata on remote server if they change
 
 
 # References :
@@ -26,3 +34,5 @@
 1. https://www.youtube.com/watch?v=3RHjRXWAUvg
 
 2. https://thinksoftware.medium.com/how-to-tackle-system-design-interview-for-file-sharing-service-like-dropbox-or-google-drive-7983fdbf1a82
+
+3. https://systemdesignprimer.com/dropbox-system-design/
