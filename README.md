@@ -19,6 +19,8 @@
 2. The system should be highly scalable as the number of users using the system increases
 
 
+!["Dropbox Design"](dropbox-system-design.webp?raw=true)
+
 ## Client :
 
 Client(desktop or mobile app) keeps a watch on user’s workspace and synchronizes the files with remote server. Below are some main responsibilities of client:
