@@ -7,7 +7,8 @@
 3. User should be able to sync files to cloud storage.
 4. System should support max file size of 10 GB.
 5. The owner(user who created the file/folder) of the file/folder should have all the access e.g. Read, Write and Share with others.
-6. Owner of the file/folder should be able to share the file/folder with others (through a link or any other way) 
+6. Owner of the file/folder should be able to share the file/folder with others (through a link or any other way)
+7. The system should allow offline file creates/updates/deletes. Then as soon as the device comes online, it synchronizes the changes to the cloud. 
 
 ## Non Functional Requirements :
 
