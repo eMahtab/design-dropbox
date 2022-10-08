@@ -33,6 +33,8 @@ File chunking is very important part of the system. If there is any change in fi
 
 And this saving is significant when the file size is large, suppose initial file size was around 2 GB, after 5 minutes user updated the same file making it 2.01 GB, since the change was very small only the chunks which are changed or gets newly added will be uploaded. So the client app just needs to upload the chunks which were changed to the cloud. And if this file was shared with multiple other users, they just need to upload the chunks which were changed.
 
+# Also multiple chunks can be uploaded in parallel thereby reducing the time for upload.
+
 **Watcher:** Watcher monitors for file changes in workspace like update, create, delete of files and folders. Watcher notifies Indexer about the changes.
 
 **Chunker:** Chunker splits the big files in to chunks of 4 MB. This also reconstructs the original file from chunks.
