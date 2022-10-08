@@ -28,6 +28,11 @@ Client(desktop or mobile app) keeps a watch on user’s workspace and synchroniz
 3. Handle the conflicts due to offline or concurrent updates
 4. Update file metadata on remote server if they change
 
+# Save Bandwidth using File Chunking :
+File chunking is very important part of the system. If there is any change in file, client determines which chunk has changed and just uploads that chunk to remote server. Similarly on other side, other client gets notified about the chunk that has changed and downloads just that chunk. This saves a lot of network bandwidth.
+
+And this saving is significant when the file size is large, suppose initial file size was around 2 GB, after 5 minutes user updated the same file making it 2.01 GB, since the change was very small only the chunks which are changed or gets newly added will be uploaded. So the client app just needs to upload the chunks which were changed to the cloud. And if this file was shared with multiple other users, they just need to upload the chunks which were changed.
+
 
 # References :
 
