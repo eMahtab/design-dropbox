@@ -33,6 +33,16 @@ File chunking is very important part of the system. If there is any change in fi
 
 And this saving is significant when the file size is large, suppose initial file size was around 2 GB, after 5 minutes user updated the same file making it 2.01 GB, since the change was very small only the chunks which are changed or gets newly added will be uploaded. So the client app just needs to upload the chunks which were changed to the cloud. And if this file was shared with multiple other users, they just need to upload the chunks which were changed.
 
+**Watcher:** Watcher monitors for file changes in workspace like update, create, delete of files and folders. Watcher notifies Indexer about the changes.
+
+**Chunker:** Chunker splits the big files in to chunks of 4 MB. This also reconstructs the original file from chunks.
+
+**Indexer:** Indexer listens for the events from watcher and updates the Client Metadata Database with information about the chunks of modified file. It also notifies Synchronizer after committing changes to Client Metadata Database.
+
+**Client Metadata Database:** Client Metadata Database stores the information about different files in workspace, file chunks, chunk version and file location in the file system. This can be implemented using a lightweight database like SQLite.
+
+**Synchronizer:** Synchronizer listens for events from Indexer and communicates with Meta Service and Block service for updating meta data and modified chunk of file on remote server respectively. It also listens for changes broadcasted by Notification Service and downloads the modified chunks from remote server.
+
 
 # References :
 
