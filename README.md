@@ -48,6 +48,25 @@ And this saving is significant when the file size is large, suppose initial file
 **Synchronizer:** Synchronizer listens for events from Indexer and communicates with Meta Service and Block service for updating meta data and modified chunk of file on remote server respectively. It also listens for changes broadcasted by Notification Service and downloads the modified chunks from remote server.
 
 
+# Backend :
+
+## Block Service
+Block Service interacts with block storage for uploading and downloading of files. Clients connect with Block Service to upload or download file chunks.
+
+When a client finishes downloading file, Block Service notifies Meta Service to update the metadata. When a client uploads a file, Block Service on finishing the upload to block storage, notifies the Meta Service to update the metadata corresponding to this client and broadcast messages for other clients.
+
+## Meta Service (Metadata Service) :
+Meta Service is responsible for synchronizing the file metadata from client to server. It’s also responsible to figure out the change set for different clients and broadcast it to them using Notification Service.
+
+When a client comes online, it pings Meta Service for an update. Meta Service determines the change set for that client by querying the Metadata DB and returns the change set.
+
+If a client updates a file, Meta Service again determines the change set for other clients watching that file and broadcasts the change set via Notification Service.
+
+Meta Service is backed by Metadata DB. This database contains the metadata of file like name, type (file or folder), sharing permissions, chunks information etc. This database should have strong ACID (atomicity, consistency, isolation, durability) properties. Hence a relational database, like MySQL or PostgreSQL, would be a good choice.
+
+Since querying the database for every synchronization request is a costly operation, a in-memory cache is put in front of Metadata DB. Frequently queries data is cached in this cache thereby eliminating the need of database query.
+
+
 # References :
 
 1. https://www.youtube.com/watch?v=3RHjRXWAUvg
