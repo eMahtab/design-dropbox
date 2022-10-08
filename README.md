@@ -1,5 +1,6 @@
 # Design Cloud File Storage System e.g. Google Drive, Dropbox, Microsoft OneDrive
 
+!["Design Dropbox"](cloud-file-storage.png?raw=true)
 
 # Functional Requirements :
 
