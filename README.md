@@ -17,3 +17,11 @@
 1. System should be highly available
 2. The system should be highly scalable as the number of users using the system increases
 
+
+
+
+# References :
+
+1. https://www.youtube.com/watch?v=3RHjRXWAUvg
+
+2. https://thinksoftware.medium.com/how-to-tackle-system-design-interview-for-file-sharing-service-like-dropbox-or-google-drive-7983fdbf1a82
